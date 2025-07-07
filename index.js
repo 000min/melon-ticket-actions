@@ -24,6 +24,11 @@ const qs = require("querystring");
     const res = await axios_1.default({
         method: "POST",
         url: "https://ticket.melon.com/tktapi/product/seatStateInfo.json",
+        headers: {  // ✅ 헤더 추가
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/x-www-form-urlencoded",  // ✅ 이 줄도 꼭 필요합니다!
+        },
         params: {
             v: "1",
         },
