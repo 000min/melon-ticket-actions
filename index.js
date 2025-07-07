@@ -24,14 +24,14 @@ const qs = require("querystring");
     const res = await axios_1.default({
         method: "POST",
         url: "https://ticket.melon.com/tktapi/product/seatStateInfo.json",
-        headers: {  // ✅ 헤더 추가
+        params: { v: "1" },
+        headers: {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
             "Accept": "application/json, text/plain, */*",
-            "Content-Type": "application/x-www-form-urlencoded",  // ✅ 이 줄도 꼭 필요합니다!
-        },
-        params: {
-            v: "1",
-        },
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Origin": "https://ticket.melon.com",
+            "Referer": `https://ticket.melon.com/performance/index.htm?prodId=${productId}`
+        },  
         data: qs.stringify({
             prodId: productId,
             scheduleNo: scheduleId,
@@ -39,7 +39,7 @@ const qs = require("querystring");
             volume: 1,
             selectedGradeVolume: 1,
         }),
-    });
+    }); 
     // tslint:disable-next-line
     console.log("Got response: ", res.data);
     if (res.data.chkResult) {
