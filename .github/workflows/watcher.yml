@@ -14,7 +14,7 @@ jobs:
         uses: Min000-blip/melon-ticket-actions@master
         with:
           product-id: '211358'                     # 공연 ID
-          schedule-id: '457472'                    # 회차 ID
-          seat-id: '1_2'                           # 감시 좌석 ID
+          schedule-id: '100001'                    # 회차 ID
+          seat-id: '2050'                           # 감시 좌석 ID
           slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
           message: '🎟️ 자리가 났어요!'
