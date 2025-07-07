@@ -1,0 +1,20 @@
+name: Melon Ticket Watcher
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # 5분마다 실행 (UTC)
+  workflow_dispatch:       # 수동 실행도 가능
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Melon Ticket Notifier
+        uses: Min000-blip/melon-ticket-actions@master
+        with:
+          product-id: '211358'                     # 공연 ID
+          schedule-id: '457472'                    # 회차 ID
+          seat-id: '1_2'                           # 감시 좌석 ID
+          slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          message: '🎟️ 자리가 났어요!'
