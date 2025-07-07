@@ -14,7 +14,7 @@ inputs:
   slack-incoming-webhook-url: https://hooks.slack.com/services/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
     description: 'URL of Slack Incoming Webhook'
     required: true
-  message:
+  message: 티켓 빈자리 알림 https://ticket.melon.com/performance/index.htm?prodId=211358
     description: 'Message'
     required: false
     default: '티켓사세요'
